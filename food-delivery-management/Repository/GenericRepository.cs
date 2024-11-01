@@ -1,7 +1,7 @@
 ﻿using Food_Delivery_Management.Data;
 using Microsoft.EntityFrameworkCore;
 
-namespace Demo_Hotel_Listing.Repository
+namespace food_delivery_management.Repository
 {
     public class GenericRepository<T> : IGenericRepository<T> where T : class
     {
@@ -24,6 +24,10 @@ namespace Demo_Hotel_Listing.Repository
             return await _context.Set<T>().ToListAsync();
         }
 
-       
+        public async Task UpdateAsync(T entity)
+        {
+            _context.Set<T>().Update(entity);
+            await _context.SaveChangesAsync();
+        }
     }
 }

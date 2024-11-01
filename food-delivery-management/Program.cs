@@ -1,4 +1,4 @@
-using Demo_Hotel_Listing.Repository;
+using food_delivery_management.Repository;
 using Food_Delivery_Management.Configurations;
 using Food_Delivery_Management.Data;
 using Food_Delivery_Management.Repository;
@@ -15,6 +15,8 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddAutoMapper(typeof(MapperConfig));
 builder.Services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
 builder.Services.AddScoped<IResturantRepository, ResturantRepository>();
+builder.Services.AddScoped<IMenuItemRepository, MenuItemRepository>();
+builder.Services.AddScoped<IOrderRepository, OrderRepository>();
 builder.Services.AddDbContext<FoodDeliveryManagementDbContext>(options =>
     options.UseNpgsql(builder.Configuration.GetConnectionString("HotelDeliveryManagementString")));
 builder.Services.AddCors(options =>

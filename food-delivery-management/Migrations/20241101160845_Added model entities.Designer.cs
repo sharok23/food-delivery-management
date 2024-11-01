@@ -12,8 +12,8 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace food_delivery_management.Migrations
 {
     [DbContext(typeof(FoodDeliveryManagementDbContext))]
-    [Migration("20241031180333_menu added")]
-    partial class menuadded
+    [Migration("20241101160845_Added model entities")]
+    partial class Addedmodelentities
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -31,11 +31,11 @@ namespace food_delivery_management.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uuid");
 
-                    b.Property<string>("CustomerAddress")
+                    b.Property<string>("CustomerName")
                         .IsRequired()
                         .HasColumnType("text");
 
-                    b.Property<string>("CustomerName")
+                    b.Property<string>("DeliveryAddress")
                         .IsRequired()
                         .HasColumnType("text");
 
@@ -49,10 +49,20 @@ namespace food_delivery_management.Migrations
                     b.Property<Guid>("RestaurantId")
                         .HasColumnType("uuid");
 
-                    b.Property<int>("Status")
-                        .HasColumnType("integer");
+                    b.Property<Guid?>("ResturantId")
+                        .HasColumnType("uuid");
+
+                    b.Property<string>("Status")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("character varying(50)");
+
+                    b.Property<DateTime>("StatusTime")
+                        .HasColumnType("timestamp with time zone");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("ResturantId");
 
                     b.ToTable("Orders");
                 });
@@ -87,6 +97,12 @@ namespace food_delivery_management.Migrations
                     b.Property<float>("Rating")
                         .HasColumnType("real");
 
+                    b.Property<decimal>("revenue")
+                        .HasColumnType("numeric");
+
+                    b.Property<int>("totalOrders")
+                        .HasColumnType("integer");
+
                     b.HasKey("Id");
 
                     b.ToTable("Resturants");
@@ -94,11 +110,9 @@ namespace food_delivery_management.Migrations
 
             modelBuilder.Entity("food_delivery_management.Model.MenuItem", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("integer");
-
-                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
+                        .HasColumnType("uuid");
 
                     b.Property<string>("Description")
                         .IsRequired()
@@ -108,29 +122,28 @@ namespace food_delivery_management.Migrations
                         .IsRequired()
                         .HasColumnType("text");
 
+                    b.Property<int>("OrderCount")
+                        .HasColumnType("integer");
+
                     b.Property<decimal>("Price")
                         .HasColumnType("numeric");
 
-                    b.Property<Guid?>("ResturantId")
-                        .HasColumnType("uuid");
+                    b.Property<decimal>("Revenue")
+                        .HasColumnType("numeric");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("ResturantId");
-
-                    b.ToTable("MenuItem");
+                    b.ToTable("MenuItems");
                 });
 
             modelBuilder.Entity("food_delivery_management.Model.OrderItem", b =>
                 {
-                    b.Property<int>("OrderItemId")
+                    b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("integer");
+                        .HasColumnType("uuid");
 
-                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("OrderItemId"));
-
-                    b.Property<int>("MenuItemId")
-                        .HasColumnType("integer");
+                    b.Property<Guid>("MenuItemId")
+                        .HasColumnType("uuid");
 
                     b.Property<Guid?>("OrderId")
                         .HasColumnType("uuid");
@@ -142,17 +155,17 @@ namespace food_delivery_management.Migrations
                         .IsRequired()
                         .HasColumnType("text");
 
-                    b.HasKey("OrderItemId");
+                    b.HasKey("Id");
 
                     b.HasIndex("OrderId");
 
                     b.ToTable("OrderItems");
                 });
 
-            modelBuilder.Entity("food_delivery_management.Model.MenuItem", b =>
+            modelBuilder.Entity("Food_Delivery_Management.Model.Order", b =>
                 {
                     b.HasOne("Food_Delivery_Management.Model.Resturant", null)
-                        .WithMany("MenuItems")
+                        .WithMany("Orders")
                         .HasForeignKey("ResturantId");
                 });
 
@@ -170,7 +183,7 @@ namespace food_delivery_management.Migrations
 
             modelBuilder.Entity("Food_Delivery_Management.Model.Resturant", b =>
                 {
-                    b.Navigation("MenuItems");
+                    b.Navigation("Orders");
                 });
 #pragma warning restore 612, 618
         }

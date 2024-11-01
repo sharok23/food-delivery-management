@@ -1,0 +1,6 @@
+﻿namespace food_delivery_management.Exception
+{
+    public class BadRequest
+    {
+    }
+}

@@ -1,5 +1,62 @@
 [
   {
+    "ContainingType": "food_delivery_management.Controllers.OrderController",
+    "Method": "PlaceOrder",
+    "RelativePath": "api/Order",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "food_delivery_management.Contract.Request.AddOrderRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "food_delivery_management.Contract.Response.AddOrderResponse",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "food_delivery_management.Controllers.OrderController",
+    "Method": "UpdateOrderStatus",
+    "RelativePath": "api/Order/{id}/status",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Guid",
+        "IsRequired": true
+      },
+      {
+        "Name": "request",
+        "Type": "food_delivery_management.Contract.Request.UpdateOrderStatusRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "food_delivery_management.Contract.Response.UpdateOrderStatusResponse",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
     "ContainingType": "food_delivery_management.Controllers.ResturantController",
     "Method": "PostResturant",
     "RelativePath": "api/Resturant",
@@ -32,10 +89,16 @@
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
-    "Parameters": [],
+    "Parameters": [
+      {
+        "Name": "getResturantRequest",
+        "Type": "food_delivery_management.Contract.Request.GetResturantRequest",
+        "IsRequired": true
+      }
+    ],
     "ReturnTypes": [
       {
-        "Type": "System.Collections.Generic.IEnumerable\u00601[[food_delivery_management.Contract.Response.AddResturantResponse, food-delivery-management, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "Type": "food_delivery_management.Contract.Response.GetResturantResponse",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -46,16 +109,22 @@
     ]
   },
   {
-    "ContainingType": "food_delivery_management.Controllers.WeatherForecastController",
-    "Method": "Get",
-    "RelativePath": "WeatherForecast",
+    "ContainingType": "food_delivery_management.Controllers.ResturantController",
+    "Method": "GetRestaurantAnalytics",
+    "RelativePath": "api/Resturant/{id}/analytics",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
-    "Parameters": [],
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
     "ReturnTypes": [
       {
-        "Type": "System.Collections.Generic.IEnumerable\u00601[[food_delivery_management.WeatherForecast, food-delivery-management, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "Type": "food_delivery_management.Contract.Response.RestaurantAnalyticsResponse",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -63,7 +132,32 @@
         ],
         "StatusCode": 200
       }
+    ]
+  },
+  {
+    "ContainingType": "food_delivery_management.Controllers.ResturantController",
+    "Method": "PostMenuItem",
+    "RelativePath": "api/Resturant/menu-items",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "addMenuItemRequest",
+        "Type": "food_delivery_management.Contract.Request.AddMenuItemRequest",
+        "IsRequired": true
+      }
     ],
-    "EndpointName": "GetWeatherForecast"
+    "ReturnTypes": [
+      {
+        "Type": "food_delivery_management.Contract.Response.AddMenuItemResponse",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
   }
 ]

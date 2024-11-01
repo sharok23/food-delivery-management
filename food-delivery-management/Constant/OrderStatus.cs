@@ -7,6 +7,6 @@
         Preparing,
         OutForDelivery,
         Delivered,
-        Canceled
+        Cancelled
     }
 }

@@ -1,10 +1,10 @@
 ﻿namespace food_delivery_management.Contract.Request
 {
-    public class ResturantRequest
+    public class GetResturantRequest
     {
         public string Cuisine { get; set; }
         public string Location { get; set; }
-        public double? Rating { get; set; }
+        public float? Rating { get; set; }
         public bool? IsOpen { get; set; }
     }
 }

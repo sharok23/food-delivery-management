@@ -12,8 +12,8 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace food_delivery_management.Migrations
 {
     [DbContext(typeof(FoodDeliveryManagementDbContext))]
-    [Migration("20241031162711_Initial Migration")]
-    partial class InitialMigration
+    [Migration("20241101115516_Added models")]
+    partial class Addedmodels
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -31,11 +31,11 @@ namespace food_delivery_management.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uuid");
 
-                    b.Property<string>("CustomerAddress")
+                    b.Property<string>("CustomerName")
                         .IsRequired()
                         .HasColumnType("text");
 
-                    b.Property<string>("CustomerName")
+                    b.Property<string>("DeliveryAddress")
                         .IsRequired()
                         .HasColumnType("text");
 
@@ -67,6 +67,9 @@ namespace food_delivery_management.Migrations
                         .IsRequired()
                         .HasColumnType("text");
 
+                    b.Property<int>("EstimatedDeliveryTime")
+                        .HasColumnType("integer");
+
                     b.Property<bool>("IsOpen")
                         .HasColumnType("boolean");
 
@@ -89,16 +92,41 @@ namespace food_delivery_management.Migrations
                     b.ToTable("Resturants");
                 });
 
+            modelBuilder.Entity("food_delivery_management.Model.MenuItem", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uuid");
+
+                    b.Property<string>("Description")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<decimal>("Price")
+                        .HasColumnType("numeric");
+
+                    b.Property<Guid?>("ResturantId")
+                        .HasColumnType("uuid");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ResturantId");
+
+                    b.ToTable("MenuItems");
+                });
+
             modelBuilder.Entity("food_delivery_management.Model.OrderItem", b =>
                 {
-                    b.Property<int>("OrderItemId")
+                    b.Property<Guid>("OrderItemId")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("integer");
+                        .HasColumnType("uuid");
 
-                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("OrderItemId"));
-
-                    b.Property<int>("MenuItemId")
-                        .HasColumnType("integer");
+                    b.Property<Guid>("MenuItemId")
+                        .HasColumnType("uuid");
 
                     b.Property<Guid?>("OrderId")
                         .HasColumnType("uuid");
@@ -117,6 +145,13 @@ namespace food_delivery_management.Migrations
                     b.ToTable("OrderItems");
                 });
 
+            modelBuilder.Entity("food_delivery_management.Model.MenuItem", b =>
+                {
+                    b.HasOne("Food_Delivery_Management.Model.Resturant", null)
+                        .WithMany("MenuItems")
+                        .HasForeignKey("ResturantId");
+                });
+
             modelBuilder.Entity("food_delivery_management.Model.OrderItem", b =>
                 {
                     b.HasOne("Food_Delivery_Management.Model.Order", null)
@@ -127,6 +162,11 @@ namespace food_delivery_management.Migrations
             modelBuilder.Entity("Food_Delivery_Management.Model.Order", b =>
                 {
                     b.Navigation("Items");
+                });
+
+            modelBuilder.Entity("Food_Delivery_Management.Model.Resturant", b =>
+                {
+                    b.Navigation("MenuItems");
                 });
 #pragma warning restore 612, 618
         }

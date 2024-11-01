@@ -1,10 +1,3 @@
-C:\Users\sharu\Desktop\food-delivery-management\food-delivery-management\obj\Debug\net8.0\food-delivery-management.csproj.AssemblyReference.cache
-C:\Users\sharu\Desktop\food-delivery-management\food-delivery-management\obj\Debug\net8.0\food-delivery-management.GeneratedMSBuildEditorConfig.editorconfig
-C:\Users\sharu\Desktop\food-delivery-management\food-delivery-management\obj\Debug\net8.0\food-delivery-management.AssemblyInfoInputs.cache
-C:\Users\sharu\Desktop\food-delivery-management\food-delivery-management\obj\Debug\net8.0\food-delivery-management.AssemblyInfo.cs
-C:\Users\sharu\Desktop\food-delivery-management\food-delivery-management\obj\Debug\net8.0\food-delivery-management.csproj.CoreCompileInputs.cache
-C:\Users\sharu\Desktop\food-delivery-management\food-delivery-management\obj\Debug\net8.0\food-delivery-management.MvcApplicationPartsAssemblyInfo.cs
-C:\Users\sharu\Desktop\food-delivery-management\food-delivery-management\obj\Debug\net8.0\food-delivery-management.MvcApplicationPartsAssemblyInfo.cache
 C:\Users\sharu\Desktop\food-delivery-management\food-delivery-management\bin\Debug\net8.0\appsettings.Development.json
 C:\Users\sharu\Desktop\food-delivery-management\food-delivery-management\bin\Debug\net8.0\appsettings.json
 C:\Users\sharu\Desktop\food-delivery-management\food-delivery-management\bin\Debug\net8.0\food-delivery-management.exe
@@ -106,6 +99,14 @@ C:\Users\sharu\Desktop\food-delivery-management\food-delivery-management\bin\Deb
 C:\Users\sharu\Desktop\food-delivery-management\food-delivery-management\bin\Debug\net8.0\tr\Microsoft.CodeAnalysis.Workspaces.resources.dll
 C:\Users\sharu\Desktop\food-delivery-management\food-delivery-management\bin\Debug\net8.0\zh-Hans\Microsoft.CodeAnalysis.Workspaces.resources.dll
 C:\Users\sharu\Desktop\food-delivery-management\food-delivery-management\bin\Debug\net8.0\zh-Hant\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Users\sharu\Desktop\food-delivery-management\food-delivery-management\obj\Debug\net8.0\food-delivery-management.csproj.AssemblyReference.cache
+C:\Users\sharu\Desktop\food-delivery-management\food-delivery-management\obj\Debug\net8.0\food-delivery-management.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\sharu\Desktop\food-delivery-management\food-delivery-management\obj\Debug\net8.0\food-delivery-management.AssemblyInfoInputs.cache
+C:\Users\sharu\Desktop\food-delivery-management\food-delivery-management\obj\Debug\net8.0\food-delivery-management.AssemblyInfo.cs
+C:\Users\sharu\Desktop\food-delivery-management\food-delivery-management\obj\Debug\net8.0\food-delivery-management.csproj.CoreCompileInputs.cache
+C:\Users\sharu\Desktop\food-delivery-management\food-delivery-management\obj\Debug\net8.0\food-delivery-management.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\sharu\Desktop\food-delivery-management\food-delivery-management\obj\Debug\net8.0\food-delivery-management.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\sharu\Desktop\food-delivery-management\food-delivery-management\obj\Debug\net8.0\food-delivery-management.sourcelink.json
 C:\Users\sharu\Desktop\food-delivery-management\food-delivery-management\obj\Debug\net8.0\staticwebassets.build.json
 C:\Users\sharu\Desktop\food-delivery-management\food-delivery-management\obj\Debug\net8.0\staticwebassets.development.json
 C:\Users\sharu\Desktop\food-delivery-management\food-delivery-management\obj\Debug\net8.0\staticwebassets\msbuild.food-delivery-management.Microsoft.AspNetCore.StaticWebAssets.props
@@ -120,3 +121,4 @@ C:\Users\sharu\Desktop\food-delivery-management\food-delivery-management\obj\Deb
 C:\Users\sharu\Desktop\food-delivery-management\food-delivery-management\obj\Debug\net8.0\food-delivery-management.pdb
 C:\Users\sharu\Desktop\food-delivery-management\food-delivery-management\obj\Debug\net8.0\food-delivery-management.genruntimeconfig.cache
 C:\Users\sharu\Desktop\food-delivery-management\food-delivery-management\obj\Debug\net8.0\ref\food-delivery-management.dll
+C:\Users\sharu\Desktop\food-delivery-management\food-delivery-management\bin\Debug\net8.0\Newtonsoft.Json.dll

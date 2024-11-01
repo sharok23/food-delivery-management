@@ -17,6 +17,8 @@ namespace Food_Delivery_Management.Model
         public bool IsOpen { get; set; }
         public int EstimatedDeliveryTime { get; set; }
         public decimal MinimumOrder { get; set; }
-        public virtual ICollection<MenuItem>? MenuItems { get; set; }
+        public int totalOrders { get; set; }
+        public decimal revenue { get; set; }
+        public virtual ICollection<Order> Orders { get; set; } = new List<Order>();
     }
 }
